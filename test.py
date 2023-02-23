@@ -4,9 +4,23 @@ import time
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
+
 driver = webdriver.Chrome()
-driver.get('https://hh.kz/')
-time.sleep(7)
+link = 'https://hh.kz'
+
+
+def getURLWebSite(url):
+    driver.get(url)
+    time.sleep(5)
+
+
+getURLWebSite(link)
+
+
+def test_example(base_url):
+    base_url = link
+    assert "errorPageContainer" in [elem.get_attribute("id") for elem in driver.find_elements_by_css_selector("body > div")]
+
 
 driver.find_element(By.XPATH, '//*[@id="HH-React-Root"]/div/div[2]/div/div/div/div/div[5]/a').click()
 time.sleep(7)
