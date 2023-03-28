@@ -17,13 +17,13 @@ word_items = []
 
 for word in range(len(word_id)):
     word_items.append(driver.find_element(By.XPATH, f'//div[@id="{word_id[word]}"]').click())
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(5)
 
 actions = ActionChains(driver)
 
 for word in range(len(word_items)):
     actions.click(word_items[word])
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(5)
 
 driver.implicitly_wait(5)
 text = driver.find_element(By.XPATH, '//div[@id="textbox1_freetext"]')
